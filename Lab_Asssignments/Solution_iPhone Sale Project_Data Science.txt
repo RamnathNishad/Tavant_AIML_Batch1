@@ -1,0 +1,65 @@
+1) What is the top 10 highest-rated iPhones on Flipkart in India
+
+2) How many ratings do the highest-rated iPhones on Flipkart have?
+
+3) Which iPhone has highest number of reviews on Flipkart?
+
+4) What is the relationship between the sale price of iPhones and the number of ratings on Flipkart?
+
+5) What is the relationship between the discount percentage and the number of ratings of iPhones on Flipkart?
+
+ 
+Steps:
+data=pd.read_csv("apple_products.csv")
+data
+
+data.isnull().sum()
+
+data.describe()
+
+Sol: 1. What is the top 10 highest-rated iPhones on Flipkart in India
+
+highest_rated=data.sort_values(by=["Star Rating"],ascending=False)
+highest_rated=highes_rated.head()
+print(highest_rated["Product Name"])
+------------
+print(highest_rated)
+
+Sol: 2. How many ratings do the highest-rated iPhones on Flipkart have?
+data.head()
+iphones-highest_rated["Product Name"].value_counts()
+label = iphone.index
+counts=highest_rated["Number Of Ratings"]
+figure=px.bar(highest_rated,x=label,y=counts)
+figre.show()
+
+
+Sol: 3. Which iPhone has highest number of reviews on Flipkart?
+
+iphones-highest_rated["Product Name"].value_counts()
+label = iphone.index
+counts=highest_rated["Number Of Reviews"]
+figure=px.bar(highest_rated,x=label,y=counts)
+figre.show()
+
+Sol: 4. What is the relationship between the sale price of iPhones and the number of ratings on Flipkart?
+figure=px.scatter(data_frame=data,x="Number Of Ratings", y="Sale Price",size="Discount Percentage",trendline="ols",
+title="Relationship between sales price and number of rating")
+
+figure.show()
+
+conclusion is : There is a negative relationship between the sale price of iPhones and the number of ratings. It means iPhones with sale prices are sold more in India
+
+
+Sol: 5. What is the relationship between the discount percentage and the number of ratings of iPhones on Flipkart?
+
+figure=px.scatter(data_frame=data,x="Number Of Ratings", y="Discount Percentage", size="Sale Price " ,trendline="ols",
+title="Relationship between Discount and number of ratings of iPhones")
+
+figure.show()
+
+
+
+
+
+
